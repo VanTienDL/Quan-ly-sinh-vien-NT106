@@ -1,0 +1,17 @@
+D:\Bai Tap UIT\QLSV\QLSV\bin\Debug\net8.0-windows\QLSV.exe
+D:\Bai Tap UIT\QLSV\QLSV\bin\Debug\net8.0-windows\QLSV.deps.json
+D:\Bai Tap UIT\QLSV\QLSV\bin\Debug\net8.0-windows\QLSV.runtimeconfig.json
+D:\Bai Tap UIT\QLSV\QLSV\bin\Debug\net8.0-windows\QLSV.dll
+D:\Bai Tap UIT\QLSV\QLSV\bin\Debug\net8.0-windows\QLSV.pdb
+D:\Bai Tap UIT\QLSV\QLSV\obj\Debug\net8.0-windows\QLSV.Form1.resources
+D:\Bai Tap UIT\QLSV\QLSV\obj\Debug\net8.0-windows\QLSV.csproj.GenerateResource.cache
+D:\Bai Tap UIT\QLSV\QLSV\obj\Debug\net8.0-windows\QLSV.GeneratedMSBuildEditorConfig.editorconfig
+D:\Bai Tap UIT\QLSV\QLSV\obj\Debug\net8.0-windows\QLSV.AssemblyInfoInputs.cache
+D:\Bai Tap UIT\QLSV\QLSV\obj\Debug\net8.0-windows\QLSV.AssemblyInfo.cs
+D:\Bai Tap UIT\QLSV\QLSV\obj\Debug\net8.0-windows\QLSV.csproj.CoreCompileInputs.cache
+D:\Bai Tap UIT\QLSV\QLSV\obj\Debug\net8.0-windows\QLSV.dll
+D:\Bai Tap UIT\QLSV\QLSV\obj\Debug\net8.0-windows\refint\QLSV.dll
+D:\Bai Tap UIT\QLSV\QLSV\obj\Debug\net8.0-windows\QLSV.pdb
+D:\Bai Tap UIT\QLSV\QLSV\obj\Debug\net8.0-windows\QLSV.genruntimeconfig.cache
+D:\Bai Tap UIT\QLSV\QLSV\obj\Debug\net8.0-windows\ref\QLSV.dll
+D:\Bai Tap UIT\QLSV\QLSV\obj\Debug\net8.0-windows\QLSV.Properties.Resources.resources
