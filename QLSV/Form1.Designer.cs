@@ -44,6 +44,7 @@
             LBds = new Label();
             comboGioi = new ComboBox();
             pLogo = new PictureBox();
+            btnTK = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pLogo).BeginInit();
             SuspendLayout();
@@ -54,7 +55,7 @@
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Location = new Point(12, 238);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(797, 272);
+            dataGridView1.Size = new Size(863, 272);
             dataGridView1.TabIndex = 0;
             // 
             // LBthisinh
@@ -63,7 +64,7 @@
             LBthisinh.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             LBthisinh.Location = new Point(12, 19);
             LBthisinh.Name = "LBthisinh";
-            LBthisinh.Size = new Size(622, 179);
+            LBthisinh.Size = new Size(665, 179);
             LBthisinh.TabIndex = 1;
             LBthisinh.Text = "Nhập thí sinh";
             // 
@@ -161,6 +162,7 @@
             btnXoa.TabIndex = 13;
             btnXoa.Text = "Xóa";
             btnXoa.UseVisualStyleBackColor = true;
+            btnXoa.Click += btnXoa_Click;
             // 
             // LBds
             // 
@@ -181,18 +183,29 @@
             // 
             // pLogo
             // 
-            pLogo.Location = new Point(640, 19);
+            pLogo.Location = new Point(695, 19);
             pLogo.Name = "pLogo";
-            pLogo.Size = new Size(169, 179);
+            pLogo.Size = new Size(180, 179);
             pLogo.SizeMode = PictureBoxSizeMode.Zoom;
             pLogo.TabIndex = 16;
             pLogo.TabStop = false;
+            // 
+            // btnTK
+            // 
+            btnTK.Location = new Point(192, 211);
+            btnTK.Name = "btnTK";
+            btnTK.Size = new Size(75, 23);
+            btnTK.TabIndex = 17;
+            btnTK.Text = "Thống Kê";
+            btnTK.UseVisualStyleBackColor = true;
+            btnTK.Click += btnTK_Click;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(819, 512);
+            ClientSize = new Size(887, 512);
+            Controls.Add(btnTK);
             Controls.Add(pLogo);
             Controls.Add(comboGioi);
             Controls.Add(LBds);
@@ -235,5 +248,6 @@
         private Label LBds;
         private ComboBox comboGioi;
         private PictureBox pLogo;
+        private Button btnTK;
     }
 }

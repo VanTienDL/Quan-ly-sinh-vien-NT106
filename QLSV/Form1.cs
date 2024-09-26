@@ -5,8 +5,10 @@ using System.Drawing;
 namespace QLSV
 
 {
+
     public partial class Form1 : Form
     {
+        int soluong = 0;
         public class Contestant
         {
             public string ID { get; set; }
@@ -43,10 +45,22 @@ namespace QLSV
 
         private BindingList<Contestant> contestants = new BindingList<Contestant>();
 
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Kiểm tra nếu cột được nhấn là cột "Xóa"
+            if (e.ColumnIndex >= 0 && dataGridView1.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
+            {
+                // Xóa thí sinh từ danh sách dữ liệu
+                contestants.RemoveAt(e.RowIndex);
+
+                // Cập nhật lại DataGridView
+                dataGridView1.DataSource = null; // Loại bỏ liên kết hiện tại
+                dataGridView1.DataSource = contestants; // Gán lại danh sách mới
+            }
+        }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
             // Cấu hình DataGridView
             dataGridView1.AutoGenerateColumns = false;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
@@ -59,7 +73,7 @@ namespace QLSV
                 FillWeight = 1
             });
 
-            // Thêm cột "Tên" với FillWeight là 2 (cột này lớn gấp đôi)
+            // Thêm cột "Tên" với FillWeight là 4 (cột này lớn gấp 4 lần)
             dataGridView1.Columns.Add(new DataGridViewTextBoxColumn()
             {
                 HeaderText = "Tên",
@@ -110,9 +124,27 @@ namespace QLSV
                 DataPropertyName = "XepLoai",
                 FillWeight = 1
             });
+
+            // Thêm cột "Xóa" với FillWeight là 1
+            DataGridViewButtonColumn btnDelete = new DataGridViewButtonColumn()
+            {
+                HeaderText = "Xóa",
+                Text = "Xóa",
+                UseColumnTextForButtonValue = true,
+                FillWeight = 1
+            };
+            dataGridView1.Columns.Add(btnDelete);
+
             // Liên kết nguồn dữ liệu với DataGridView
             dataGridView1.DataSource = contestants;
+
+            // Xử lý sự kiện CellContentClick để thực hiện việc xóa
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
         }
+
+
+
+
 
 
         public Form1()
@@ -125,7 +157,7 @@ namespace QLSV
                 pLogo.Image = Image.FromStream(ms);
             }
 
-            
+
             // Cấu hình ComboBox giới tính
             comboGioi.Items.Add("Nam");
             comboGioi.Items.Add("Nữ");
@@ -155,7 +187,7 @@ namespace QLSV
         {
             try
             {
-                string id = $"TS{(contestants.Count + 1).ToString("D3")}";
+                string id = $"TS{(++soluong).ToString("D3")}";
                 // Parse dữ liệu từ các TextBox và ComboBox
                 string ten = tbTen.Text;
                 string gioiTinh = comboGioi.SelectedItem.ToString();
@@ -192,6 +224,35 @@ namespace QLSV
             {
                 MessageBox.Show("Vui lòng chọn giới tính.");
             }
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            tbOne.Clear();
+            tbTwo.Clear();
+            tbThree.Clear();
+            tbTen.Clear();
+            comboGioi.SelectedIndex = -1;
+        }
+
+        private void btnTK_Click(object sender, EventArgs e)
+        {
+            int soLuongThiSinh = contestants.Count;
+            var thiSinhDiemCaoNhat = contestants.OrderByDescending(c => c.DiemTrungBinh).FirstOrDefault();
+            string tenThiSinhDiemCaoNhat = thiSinhDiemCaoNhat?.Ten ?? "Không có";
+
+            int soLuongGioi = contestants.Count(c => c.XepLoai == "Giỏi");
+            int soLuongKha = contestants.Count(c => c.XepLoai == "Khá");
+            int soLuongTrungBinh = contestants.Count(c => c.XepLoai == "Trung Bình");
+            int soLuongYeu = contestants.Count(c => c.XepLoai == "Kém");
+
+            MessageBox.Show($"Số lượng thí sinh: {soLuongThiSinh}\n" +
+                             $"Tên thí sinh có điểm trung bình cao nhất: {tenThiSinhDiemCaoNhat}\n" +
+                             $"Số lượng thí sinh xếp loại giỏi: {soLuongGioi}\n" +
+                             $"Số lượng thí sinh xếp loại khá: {soLuongKha}\n" +
+                             $"Số lượng thí sinh xếp loại trung bình: {soLuongTrungBinh}\n" +
+                             $"Số lượng thí sinh không đạt (xếp loại yếu,kém): {soLuongYeu}",
+                             "Thống Kê Thí Sinh", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }
