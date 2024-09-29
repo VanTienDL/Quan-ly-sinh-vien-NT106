@@ -187,6 +187,34 @@ namespace QLSV
         {
             try
             {
+                if (double.Parse(tbOne.Text) < 0 || double.Parse(tbOne.Text) > 10)
+                {
+                    MessageBox.Show("Diem chi tu 0 den 10");
+                    return;
+                }
+                if (double.Parse(tbTwo.Text) < 0 || double.Parse(tbTwo.Text) > 10)
+                {
+                    MessageBox.Show("Diem chi tu 0 den 10");
+                    return;
+                }
+                if (double.Parse(tbThree.Text) < 0 || double.Parse(tbThree.Text) > 10)
+                {
+                    MessageBox.Show("Diem chi tu 0 den 10");
+                    return;
+                }
+                if (tbTen.Text == null || tbTen.Text.Length == 0)
+                {
+                    MessageBox.Show("Hay dien ten");
+                    return;
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Oops, somethings went wrong","Bug or error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                return;
+            }
+            try
+            {
                 string id = $"TS{(++soluong).ToString("D3")}";
                 // Parse dữ liệu từ các TextBox và ComboBox
                 string ten = tbTen.Text;
